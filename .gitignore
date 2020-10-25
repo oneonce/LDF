@@ -31,3 +31,7 @@ projects/VS/.vs/device_driver/v16/.suo
 *.idb
 *.sln
 *.user
+projects/IAR_840/Release/Obj/.ninja_deps
+projects/IAR_840/Release/Obj/.ninja_log
+*.iobj
+*.ipdb
