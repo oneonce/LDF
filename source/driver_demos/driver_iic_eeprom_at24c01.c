@@ -81,7 +81,7 @@ static int32_t eeprom_at24c01_write(uint32_t address, uint8_t addr_size, const u
 		},
 	};
 
-	return at24c01_iic_bus01->transfer(msgs, 1, millisecond);
+	return at24c01_iic_bus01->transfer(msgs, 2, millisecond);
 }
 
 
