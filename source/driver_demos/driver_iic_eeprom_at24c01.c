@@ -85,7 +85,7 @@ static int32_t eeprom_at24c01_write(uint32_t address, uint8_t addr_size, const u
 }
 
 
-driver_eeprom_t iic_eeprom_at24c01 =
+driver_eeprom_t eeprom_at24c01 =
 {
 	.device = {
 		.id = 0, // 为0时由设备管理自动分配ID，>=DEVICE_ID_USR_BASE为自定义ID
@@ -103,5 +103,5 @@ driver_eeprom_t iic_eeprom_at24c01 =
 
 void init_driver_iic_eeprom_at24c01()
 {
-	register_device(&iic_eeprom_at24c01.device.bus_node, iic_eeprom_at24c01.device.bus_id);
+	register_device(&eeprom_at24c01.device.bus_node, eeprom_at24c01.device.bus_id);
 }
