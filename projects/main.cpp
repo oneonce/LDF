@@ -55,6 +55,15 @@ void test_for_uart_debug()
     // ...
 
     uart_debug->close(&uart_debug->device);
+
+	/* EEPROM */
+	driver_eeprom_t* at24C01 = (driver_eeprom_t*)get_device_by_type(DEV_TYPE_EEPROM, EEPROM_MUX_AT24C01,  DEV_BUS_DEFAULT);
+	if (NULL != at24C01)
+	{
+		//at24C01->sync_read();
+		//at24C01->write();
+		at24C01->close(&at24C01->device);
+	}
 }
 
 

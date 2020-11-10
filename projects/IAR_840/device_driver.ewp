@@ -2110,6 +2110,18 @@
     <group>
         <name>driver_demos</name>
         <file>
+            <name>$PROJ_DIR$\..\..\source\driver_demos\driver_iic_bus01.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\driver_demos\driver_iic_bus01.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\driver_demos\driver_iic_eeprom_at24c01.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\driver_demos\driver_iic_eeprom_at24c01.h</name>
+        </file>
+        <file>
             <name>$PROJ_DIR$\..\..\source\driver_demos\driver_uart_debug.c</name>
         </file>
         <file>
@@ -2150,6 +2162,12 @@
         </group>
         <group>
             <name>interface</name>
+            <file>
+                <name>$PROJ_DIR$\..\..\source\framework\interface\driver_eeprom.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\source\framework\interface\driver_iic.h</name>
+            </file>
             <file>
                 <name>$PROJ_DIR$\..\..\source\framework\interface\driver_uart.h</name>
             </file>

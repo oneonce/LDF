@@ -9,6 +9,7 @@ driver_iic_t* at24c01_iic_bus01 = NULL;
 
 static void eeprom_at24c01_open()
 {
+	/* 获取EEPROM所在的IIC总线(假设为IIC_BUS_01) */
 	at24c01_iic_bus01 = (driver_iic_t*)get_device_by_type(DEV_TYPE_IIC, IIC_BUS_01, DEV_BUS_DEFAULT); // 设备类型, 复用功能, 总线
 	if (NULL != at24c01_iic_bus01)
 	{
@@ -48,7 +49,7 @@ static int32_t eeprom_at24c01_sync_read(uint32_t address, uint8_t addr_size, uin
 			.addr_slave = 0xA0, // 从机地址
 			.addr_bits = IIC_ADDR_BIT_7, // 7位地址
 			.flag = IIC_FLG_READ, // 读操作
-			.data_len = buffer_size, // 读数据大小(字节数)
+			.data_len = (uint16_t)buffer_size, // 读数据大小(字节数)
 			.data = buffer, // 接受缓冲区
 		},
 	};
@@ -74,14 +75,15 @@ static int32_t eeprom_at24c01_write(uint32_t address, uint8_t addr_size, const u
 		{
 			.addr_slave = 0xA0, // 从机地址
 			.addr_bits = IIC_ADDR_BIT_7, // 7位地址
-			.flag = IIC_FLG_NOSTART, // 读操作
-			.data_len = buffer_size, // 读数据大小(字节数)
+			.flag = IIC_FLG_READ | IIC_FLG_NOSTART, // 读操作
+			.data_len = (uint16_t)buffer_size, // 读数据大小(字节数)
 			.data = (uint8_t*)buffer, // 接受缓冲区
 		},
 	};
 
 	return at24c01_iic_bus01->transfer(msgs, 1, millisecond);
 }
+
 
 driver_eeprom_t iic_eeprom_at24c01 =
 {
