@@ -14,9 +14,10 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+
 #include <interface/driver_uart.h>
-
-
+#include <interface/driver_iic.h>
+#include <interface/driver_eeprom.h>
 
 
 

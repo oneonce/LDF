@@ -12,7 +12,10 @@
 **其       他:
 ***********************************************************************************************************************/
 #include <platform/platform.h>
+
 #include <driver_uart_debug.h>
+#include <driver_iic_bus01.h>
+#include <driver_iic_eeprom_at24c01.h>
 //#include ...
 
 

@@ -19,12 +19,16 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\source\driver_demos\driver_iic_bus01.c" />
+    <ClCompile Include="..\..\source\driver_demos\driver_iic_eeprom_at24c01.c" />
     <ClCompile Include="..\..\source\driver_demos\driver_uart_debug.c" />
     <ClCompile Include="..\..\source\framework\core\device_manager.c" />
     <ClCompile Include="..\..\source\framework\platform\platform.c" />
     <ClCompile Include="..\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\source\driver_demos\driver_iic_bus01.h" />
+    <ClInclude Include="..\..\source\driver_demos\driver_iic_eeprom_at24c01.h" />
     <ClInclude Include="..\..\source\driver_demos\driver_uart_debug.h" />
     <ClInclude Include="..\..\source\framework\core\device.h" />
     <ClInclude Include="..\..\source\framework\core\device_bus.h" />
@@ -34,6 +38,8 @@
     <ClInclude Include="..\..\source\framework\core\device_state.h" />
     <ClInclude Include="..\..\source\framework\core\device_type.h" />
     <ClInclude Include="..\..\source\framework\core\types.h" />
+    <ClInclude Include="..\..\source\framework\interface\driver_eeprom.h" />
+    <ClInclude Include="..\..\source\framework\interface\driver_iic.h" />
     <ClInclude Include="..\..\source\framework\interface\driver_uart.h" />
     <ClInclude Include="..\..\source\framework\interface\interface.h" />
     <ClInclude Include="..\..\source\framework\platform\platform.h" />

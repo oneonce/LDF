@@ -45,6 +45,12 @@
     <ClCompile Include="..\..\source\framework\platform\platform.c">
       <Filter>framework\platform</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\source\driver_demos\driver_iic_bus01.c">
+      <Filter>framework\driver_demos</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\driver_demos\driver_iic_eeprom_at24c01.c">
+      <Filter>framework\driver_demos</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\source\framework\core\device.h">
@@ -85,6 +91,18 @@
     </ClInclude>
     <ClInclude Include="..\..\source\framework\utils\list_head.h">
       <Filter>framework\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\framework\interface\driver_iic.h">
+      <Filter>framework\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\driver_demos\driver_iic_bus01.h">
+      <Filter>framework\driver_demos</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\framework\interface\driver_eeprom.h">
+      <Filter>framework\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\driver_demos\driver_iic_eeprom_at24c01.h">
+      <Filter>framework\driver_demos</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

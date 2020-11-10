@@ -35,3 +35,13 @@ projects/IAR_840/Release/Obj/.ninja_deps
 projects/IAR_840/Release/Obj/.ninja_log
 *.iobj
 *.ipdb
+projects/VS/.vs/device_driver/v16/Browse.VC.db-shm
+projects/VS/.vs/device_driver/v16/Browse.VC.db-wal
+projects/VS/.vs/device_driver/v16/Browse.VC.opendb
+projects/VS/.vs/device_driver/v16/ipch/AutoPCH/1124524e8ccfc6f1/DRIVER_UART_DEBUG.ipch
+projects/VS/.vs/device_driver/v16/ipch/AutoPCH/11c369b6ba901d98/DRIVER_IIC_BUS01.ipch
+projects/VS/.vs/device_driver/v16/ipch/AutoPCH/15cf2494eb72721f/DRIVER_IIC_EEPROM_DEMO.ipch
+projects/VS/.vs/device_driver/v16/ipch/AutoPCH/669143220478b616/DRIVER_IIC_DEMO.ipch
+projects/VS/.vs/device_driver/v16/ipch/AutoPCH/96463e83dae14a55/DRIVER_IIC_EEPROM_AT24C01.ipch
+projects/VS/.vs/device_driver/v16/ipch/AutoPCH/b7d0b330c872f31d/PLATFORM.ipch
+projects/VS/.vs/device_driver/v16/ipch/AutoPCH/c1832325af55ed4f/MAIN.ipch
