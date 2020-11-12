@@ -80,9 +80,6 @@
     <ClInclude Include="..\..\source\driver_demos\driver_uart_debug.h">
       <Filter>framework\driver_demos</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\source\framework\interface\driver_uart.h">
-      <Filter>framework\interface</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\source\framework\interface\interface.h">
       <Filter>framework\interface</Filter>
     </ClInclude>
@@ -92,17 +89,23 @@
     <ClInclude Include="..\..\source\framework\utils\list_head.h">
       <Filter>framework\utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\source\framework\interface\driver_iic.h">
-      <Filter>framework\interface</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\source\driver_demos\driver_iic_bus01.h">
       <Filter>framework\driver_demos</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\source\framework\interface\driver_eeprom.h">
-      <Filter>framework\interface</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\source\driver_demos\driver_iic_eeprom_at24c01.h">
       <Filter>framework\driver_demos</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\framework\interface\device_driver_spi.h">
+      <Filter>framework\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\framework\interface\device_driver_iic.h">
+      <Filter>framework\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\framework\interface\device_driver_uart.h">
+      <Filter>framework\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\framework\interface\device_driver_eeprom.h">
+      <Filter>framework\interface</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

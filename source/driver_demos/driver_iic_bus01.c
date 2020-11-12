@@ -32,7 +32,7 @@ static int32_t iic_bus01_transfer(iic_message_t* msg, int32_t msg_cnt, const uin
 }
 
 
-driver_iic_t iic_bus01 =
+device_driver_iic_t iic_bus01 =
 {
 	.device = {
 		//.id = PLATFORM_DEV_ID_IIC_DEMO, // 使用自定义ID，参考platform.h

@@ -5,12 +5,12 @@
 
 
 
-driver_iic_t* at24c01_iic_bus01 = NULL;
+device_driver_iic_t* at24c01_iic_bus01 = NULL;
 
 static void eeprom_at24c01_open()
 {
 	/* 获取EEPROM所在的IIC总线(假设为IIC_BUS_01) */
-	at24c01_iic_bus01 = (driver_iic_t*)get_device_by_type(DEV_TYPE_IIC, IIC_BUS_01, DEV_BUS_DEFAULT); // 设备类型, 复用功能, 总线
+	at24c01_iic_bus01 = (device_driver_iic_t*)get_device_by_type(DEV_TYPE_IIC, IIC_BUS_01, DEV_BUS_DEFAULT); // 设备类型, 复用功能, 总线
 	if (NULL != at24c01_iic_bus01)
 	{
 		at24c01_iic_bus01->open();
@@ -43,9 +43,9 @@ static int32_t eeprom_at24c01_sync_read(uint32_t address, uint8_t addr_size, uin
 			.addr_bits = IIC_ADDR_BIT_7, // 7位地址
 			.flag = IIC_FLG_WRITE, // 写操作
 			.data_len = addr_size, // 地址大小(字节数)
-			.data = (uint8_t*)&address, // 待读取地址
+			.data = (uint8_t*)&address, // 待读取的内部/寄存器地址
 		},
-		{
+		{ // 根据实际情况而定是否需要多个消息
 			.addr_slave = 0xA0, // 从机地址
 			.addr_bits = IIC_ADDR_BIT_7, // 7位地址
 			.flag = IIC_FLG_READ, // 读操作
@@ -72,7 +72,7 @@ static int32_t eeprom_at24c01_write(uint32_t address, uint8_t addr_size, const u
 			.data_len = addr_size, // 地址大小(字节数)
 			.data = (uint8_t*)&address, // 寄存器或内部地址
 		},
-		{
+		{ // 根据实际情况而定是否需要多个消息
 			.addr_slave = 0xA0, // 从机地址
 			.addr_bits = IIC_ADDR_BIT_7, // 7位地址
 			.flag = IIC_FLG_READ | IIC_FLG_NOSTART, // 读操作
@@ -85,7 +85,7 @@ static int32_t eeprom_at24c01_write(uint32_t address, uint8_t addr_size, const u
 }
 
 
-driver_eeprom_t eeprom_at24c01 =
+device_driver_eeprom_t eeprom_at24c01 =
 {
 	.device = {
 		.id = 0, // 为0时由设备管理自动分配ID，>=DEVICE_ID_USR_BASE为自定义ID

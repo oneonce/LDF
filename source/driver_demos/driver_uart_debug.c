@@ -9,9 +9,9 @@ uart_rx_callback uart_debug_rx_callback = NULL;
 uart_tx_callback uart_debug_tx_callback = NULL;
 
 
-void uart_debug_open(uart_parameter_t* parameter)
+void uart_debug_open(uart_cfg_parameter_t* cfg_parameter)
 {
-    if (NULL == parameter)
+    if (NULL == cfg_parameter)
     {
         // 设置默认参数
     }
@@ -57,7 +57,7 @@ static void uart_debug_register_tx_callback(uart_tx_callback callback)
 
 #if 1 // 初始化方式1(有的编译工具不支持)
 
-driver_uart_t uart_debug =
+device_driver_uart_t uart_debug =
 {
     .device = {
         .id = PLATFORM_DEV_ID_UART_DEBUG, // 使用自定义ID，参考platform.h
@@ -77,7 +77,7 @@ driver_uart_t uart_debug =
 
 #else // 初始化方式2
 
-driver_uart_t uart_debug;
+device_driver_uart_t uart_debug;
 
 void init_driver_attr() // 在init_driver_uart_debug()中调用
 {

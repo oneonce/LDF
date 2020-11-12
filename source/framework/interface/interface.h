@@ -15,9 +15,10 @@
 extern "C" {
 #endif
 
-#include <interface/driver_uart.h>
-#include <interface/driver_iic.h>
-#include <interface/driver_eeprom.h>
+#include <interface/device_driver_uart.h>
+#include <interface/device_driver_iic.h>
+#include <interface/device_driver_spi.h>
+#include <interface/device_driver_eeprom.h>
 
 
 

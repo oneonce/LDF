@@ -2163,13 +2163,16 @@
         <group>
             <name>interface</name>
             <file>
-                <name>$PROJ_DIR$\..\..\source\framework\interface\driver_eeprom.h</name>
+                <name>$PROJ_DIR$\..\..\source\framework\interface\device_driver_eeprom.h</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\..\..\source\framework\interface\driver_iic.h</name>
+                <name>$PROJ_DIR$\..\..\source\framework\interface\device_driver_iic.h</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\..\..\source\framework\interface\driver_uart.h</name>
+                <name>$PROJ_DIR$\..\..\source\framework\interface\device_driver_spi.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\source\framework\interface\device_driver_uart.h</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\..\..\source\framework\interface\interface.h</name>
