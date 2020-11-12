@@ -36,9 +36,6 @@
     <ClCompile Include="..\main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\source\framework\core\device_manager.c">
-      <Filter>framework\core</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\source\driver_demos\driver_uart_debug.c">
       <Filter>framework\driver_demos</Filter>
     </ClCompile>
@@ -50,6 +47,9 @@
     </ClCompile>
     <ClCompile Include="..\..\source\driver_demos\driver_iic_eeprom_at24c01.c">
       <Filter>framework\driver_demos</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\framework\core\device_driver_manager.c">
+      <Filter>framework\core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -63,9 +63,6 @@
       <Filter>framework\core</Filter>
     </ClInclude>
     <ClInclude Include="..\..\source\framework\core\device_macro.h">
-      <Filter>framework\core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\source\framework\core\device_manager.h">
       <Filter>framework\core</Filter>
     </ClInclude>
     <ClInclude Include="..\..\source\framework\core\device_state.h">
@@ -106,6 +103,9 @@
     </ClInclude>
     <ClInclude Include="..\..\source\framework\interface\device_driver_eeprom.h">
       <Filter>framework\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\framework\core\device_driver_manager.h">
+      <Filter>framework\core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

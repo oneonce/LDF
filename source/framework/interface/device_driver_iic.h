@@ -1,5 +1,15 @@
-#ifndef __DRIVER_IIC_H__
-#define __DRIVER_IIC_H__
+/**********************************************************************************************************************
+**                            Copyright(C), oneonce. 2020-2025. All rights reserved.
+***********************************************************************************************************************
+*文件名称: device_driver_iic.h
+*功能描述: 串口驱动
+*作       者: oneonce
+*日       期: 2020.04.01
+*版       本: 1.0
+*其       他:
+***********************************************************************************************************************/
+#ifndef __DEVICE_DRIVER_IIC_H__
+#define __DEVICE_DRIVER_IIC_H__
 
 #ifdef __cplusplus
 extern "C" {
@@ -13,7 +23,7 @@ extern "C" {
 
 /* IIC读写标志 */
 #define IIC_FLG_WRITE							0x0000 // 写数据，主机到从机
-#define IIC_FLG_READ							0x0001 // 读数据，从机到主机
+#define IIC_FLG_READ								0x0001 // 读数据，从机到主机
 
 #define IIC_FLG_NO_READ_ACK				0x0100 // 主机读操作不回复ACK
 #define IIC_FLG_IGNORE_NAK				0x0200 // 忽略从机的ACK和NACK
@@ -87,4 +97,4 @@ extern "C" {
 }
 #endif
 
-#endif // !__DRIVER_IIC_H__
+#endif // !__DEVICE_DRIVER_IIC_H__

@@ -2139,16 +2139,16 @@
                 <name>$PROJ_DIR$\..\..\source\framework\core\device_bus.h</name>
             </file>
             <file>
+                <name>$PROJ_DIR$\..\..\source\framework\core\device_driver_manager.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\source\framework\core\device_driver_manager.h</name>
+            </file>
+            <file>
                 <name>$PROJ_DIR$\..\..\source\framework\core\device_error.h</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\..\..\source\framework\core\device_macro.h</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\..\source\framework\core\device_manager.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\..\source\framework\core\device_manager.h</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\..\..\source\framework\core\device_state.h</name>

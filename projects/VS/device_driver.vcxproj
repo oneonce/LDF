@@ -22,7 +22,7 @@
     <ClCompile Include="..\..\source\driver_demos\driver_iic_bus01.c" />
     <ClCompile Include="..\..\source\driver_demos\driver_iic_eeprom_at24c01.c" />
     <ClCompile Include="..\..\source\driver_demos\driver_uart_debug.c" />
-    <ClCompile Include="..\..\source\framework\core\device_manager.c" />
+    <ClCompile Include="..\..\source\framework\core\device_driver_manager.c" />
     <ClCompile Include="..\..\source\framework\platform\platform.c" />
     <ClCompile Include="..\main.cpp" />
   </ItemGroup>
@@ -34,7 +34,7 @@
     <ClInclude Include="..\..\source\framework\core\device_bus.h" />
     <ClInclude Include="..\..\source\framework\core\device_error.h" />
     <ClInclude Include="..\..\source\framework\core\device_macro.h" />
-    <ClInclude Include="..\..\source\framework\core\device_manager.h" />
+    <ClInclude Include="..\..\source\framework\core\device_driver_manager.h" />
     <ClInclude Include="..\..\source\framework\core\device_state.h" />
     <ClInclude Include="..\..\source\framework\core\device_type.h" />
     <ClInclude Include="..\..\source\framework\core\types.h" />

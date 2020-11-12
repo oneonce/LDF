@@ -1,5 +1,5 @@
 #include "driver_uart_debug.h"
-#include <core/device_manager.h>
+#include <core/device_driver_manager.h>
 
 
 
@@ -8,6 +8,7 @@
 uart_rx_callback uart_debug_rx_callback = NULL;
 uart_tx_callback uart_debug_tx_callback = NULL;
 
+uint16_t g_uar_debug_id = 0;
 
 void uart_debug_open(uart_cfg_parameter_t* cfg_parameter)
 {
@@ -104,5 +105,7 @@ void init_driver_uart_debug()
 {
     // init_driver_attr(); // 初始化方式2
 
-    register_device(&uart_debug.device.bus_node, uart_debug.device.bus_id);
+    register_device_driver(&uart_debug.device.bus_node, uart_debug.device.bus_id);
+
+	g_uar_debug_id = uart_debug.device.id;
 }

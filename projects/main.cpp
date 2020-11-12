@@ -1,4 +1,4 @@
-#include <core/device_manager.h>
+#include <core/device_driver_manager.h>
 
 
 
@@ -28,8 +28,8 @@ void test_for_uart_debug()
     }
 
     /* 打开设备之前注册回调 */
-    uart_debug->register_rx_callback(uart_debug_rx_callback); // 注册RX回调
-    uart_debug->register_tx_callback(uart_debug_tx_callback); // 注册TX回调
+    uart_debug->register_rx_callback(uart_debug_rx_callback); // 注册rz回调
+    uart_debug->register_tx_callback(uart_debug_tx_callback); // 注册tx发送完成回调
 
 #if defined(_MSC_VER)
 

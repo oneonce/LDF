@@ -1,5 +1,5 @@
 #include "driver_iic_bus01.h"
-#include <core/device_manager.h>
+#include <core/device_driver_manager.h>
 
 
 
@@ -50,5 +50,5 @@ device_driver_iic_t iic_bus01 =
 
 void init_driver_iic_bus01()
 {
-	register_device(&iic_bus01.device.bus_node, iic_bus01.device.bus_id);
+	register_device_driver(&iic_bus01.device.bus_node, iic_bus01.device.bus_id);
 }

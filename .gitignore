@@ -45,3 +45,6 @@ projects/VS/.vs/device_driver/v16/ipch/AutoPCH/669143220478b616/DRIVER_IIC_DEMO.
 projects/VS/.vs/device_driver/v16/ipch/AutoPCH/96463e83dae14a55/DRIVER_IIC_EEPROM_AT24C01.ipch
 projects/VS/.vs/device_driver/v16/ipch/AutoPCH/b7d0b330c872f31d/PLATFORM.ipch
 projects/VS/.vs/device_driver/v16/ipch/AutoPCH/c1832325af55ed4f/MAIN.ipch
+projects/IAR_840/device_driver.ewt
+projects/VS/.vs/device_driver/v16/ipch/AutoPCH/42c0a95ee933d195/DEVICE_DRIVER_MANAGER.ipch
+projects/VS/.vs/device_driver/v16/ipch/AutoPCH/a843e03738373670/DEVICE_MANAGER.ipch
