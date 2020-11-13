@@ -2163,6 +2163,9 @@
         <group>
             <name>interface</name>
             <file>
+                <name>$PROJ_DIR$\..\..\source\framework\interface\device_driver_can.h</name>
+            </file>
+            <file>
                 <name>$PROJ_DIR$\..\..\source\framework\interface\device_driver_eeprom.h</name>
             </file>
             <file>

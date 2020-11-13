@@ -10,12 +10,12 @@
 ***********************************************************************************************************************/
 #ifndef __DEVICE_STATE_H__
 #define __DEVICE_STATE_H__
+#include <core/types.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-#include <core/types.h>
 
 
 

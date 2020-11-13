@@ -1,22 +1,22 @@
 /**********************************************************************************************************************
 **                            Copyright(C), oneonce. 2020-2025. All rights reserved.
 ***********************************************************************************************************************
-**文件名称: device_manager.h
+**文件名称: device_driver_manager.h
 **功能描述: 设备驱动管理
 **作       者: oneonce
 **日       期: 2020.03.29
 **版       本: 1.0
 **其       他:
 ***********************************************************************************************************************/
-#ifndef __DEVICE_MANAGER_H__
-#define __DEVICE_MANAGER_H__
+#ifndef __DEVICE_DRIVER_MANAGER_H__
+#define __DEVICE_DRIVER_MANAGER_H__
+#include <interface/interface.h>
+#include <platform/platform.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-#include <interface/interface.h>
-#include <platform/platform.h>
 
 
 
@@ -79,4 +79,4 @@ void* get_device_by_type(enum DEVICE_TYPE type, uint32_t multiplex, enum DEVICE_
 }
 #endif
 
-#endif // !__DEVICE_MANAGER_H__
+#endif // !__DEVICE_DRIVER_MANAGER_H__

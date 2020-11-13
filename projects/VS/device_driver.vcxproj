@@ -38,6 +38,7 @@
     <ClInclude Include="..\..\source\framework\core\device_state.h" />
     <ClInclude Include="..\..\source\framework\core\device_type.h" />
     <ClInclude Include="..\..\source\framework\core\types.h" />
+    <ClInclude Include="..\..\source\framework\interface\device_driver_can.h" />
     <ClInclude Include="..\..\source\framework\interface\device_driver_eeprom.h" />
     <ClInclude Include="..\..\source\framework\interface\device_driver_iic.h" />
     <ClInclude Include="..\..\source\framework\interface\device_driver_spi.h" />
@@ -118,6 +119,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>..\;..\..\source\framework;..\..\source\driver_demos</AdditionalIncludeDirectories>
       <AdditionalOptions>/utf-8</AdditionalOptions>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

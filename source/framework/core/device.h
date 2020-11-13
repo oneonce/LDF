@@ -10,17 +10,17 @@
 ***********************************************************************************************************************/
 #ifndef __DEVICE_H__
 #define __DEVICE_H__
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 #include <core/device_bus.h>
 #include <core/device_type.h>
 #include <core/device_state.h>
 #include <core/device_error.h>
 #include <core/device_macro.h>
 #include <utils/list_head.h>
+
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 
 

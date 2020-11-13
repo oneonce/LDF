@@ -52,8 +52,6 @@ bool register_device_driver(list_head_t* node, enum DEVICE_BUS_ID bus_id)
 		current->id = device_id_generater++;
 	}
 
-	//current->state = DEV_STATE_FREE; // 注册时设置设备为空闲状态?
-
 	list_add_tail(&g_device_bus[bus_id], node);
 
 	return true;

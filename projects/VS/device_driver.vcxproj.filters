@@ -107,5 +107,8 @@
     <ClInclude Include="..\..\source\framework\core\device_driver_manager.h">
       <Filter>framework\core</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\source\framework\interface\device_driver_can.h">
+      <Filter>framework\interface</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

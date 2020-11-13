@@ -10,12 +10,12 @@
 ***********************************************************************************************************************/
 #ifndef __TYPES_H__
 #define __TYPES_H__
+#include <stdint.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-#include <stdint.h>
 
 
 

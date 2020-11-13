@@ -10,12 +10,12 @@
 ***********************************************************************************************************************/
 #ifndef __DRIVER_EEPROM_H__
 #define __DRIVER_EEPROM_H__
+#include <core/device.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-#include <core/device.h>
 
 
 

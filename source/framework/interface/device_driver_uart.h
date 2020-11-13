@@ -2,7 +2,7 @@
 **                            Copyright(C), oneonce. 2020-2025. All rights reserved.
 ***********************************************************************************************************************
 *文件名称: device_driver_uart.h
-*功能描述: 串口驱动
+*功能描述: UART驱动
 *作       者: oneonce
 *日       期: 2020.03.27
 *版       本: 1.0
@@ -10,12 +10,12 @@
 ***********************************************************************************************************************/
 #ifndef __DEVICE_DRIVER_UART_H__
 #define __DEVICE_DRIVER_UART_H__
+#include <core/device.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-#include <core/device.h>
 
 
 
@@ -79,10 +79,10 @@ extern "C" {
 
 
 
-	/* 串口rx回调函数 */
+	/* 串口异步模式rx回调函数 */
 	typedef void (*uart_rx_callback)(uint16_t device_id, uint8_t* buf, uint32_t size);
 
-	/* 串口异步tx完成回调函数 */
+	/* 串口异步模式tx完成回调函数 */
 	typedef void (*uart_tx_callback)(uint16_t device_id);
 
 

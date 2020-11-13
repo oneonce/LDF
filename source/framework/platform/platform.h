@@ -14,11 +14,11 @@
 ***********************************************************************************************************************/
 #ifndef __PLATFORM_H__
 #define __PLATFORM_H__
+#include <core/device_macro.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
-#include <core/device_macro.h>
 
 
 

@@ -2,7 +2,7 @@
 **                            Copyright(C), oneonce. 2020-2025. All rights reserved.
 ***********************************************************************************************************************
 *文件名称: device_driver_iic.h
-*功能描述: 串口驱动
+*功能描述: IIC驱动接口
 *作       者: oneonce
 *日       期: 2020.04.01
 *版       本: 1.0
@@ -10,12 +10,12 @@
 ***********************************************************************************************************************/
 #ifndef __DEVICE_DRIVER_IIC_H__
 #define __DEVICE_DRIVER_IIC_H__
+#include <core/device.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-#include <core/device.h>
 
 
 
