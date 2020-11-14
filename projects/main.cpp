@@ -19,9 +19,9 @@ void test_for_uart_debug()
     //device_driver_uart_t* uart_debug = (device_driver_uart_t*)get_device_by_id(PLATFORM_DEV_ID_UART_DEBUG, DEV_BUS_DEFAULT); // 通过ID查找设备
 
     /* 通过设备类型以及复用功能查找设备 */
-    device_driver_uart_t* uart_debug = (device_driver_uart_t*)get_device_by_type(DEV_TYPE_UART, // 设备类型
+    device_driver_uart_t* uart_debug = (device_driver_uart_t*)get_device_by_type(DEVICE_TYPE_UART, // 设备类型
 																			UART_MUX_DEBUG, // 复用功能
-																			DEV_BUS_DEFAULT); // 总线
+																			DEVICE_BUS_DEFAULT); // 总线
     if (NULL == uart_debug)
     {
         return;
@@ -59,9 +59,9 @@ void test_for_uart_debug()
 
 void test_for_eeprom()
 {
-	device_driver_eeprom_t* at24C01 = (device_driver_eeprom_t*)get_device_by_type(DEV_TYPE_EEPROM,
+	device_driver_eeprom_t* at24C01 = (device_driver_eeprom_t*)get_device_by_type(DEVICE_TYPE_EEPROM,
 		EEPROM_MUX_AT24C01,
-		DEV_BUS_DEFAULT);
+		DEVICE_BUS_DEFAULT);
 	if (NULL != at24C01)
 	{
 		//at24C01->sync_read();

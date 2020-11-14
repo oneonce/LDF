@@ -22,13 +22,15 @@ extern "C" {
 
 
 /* IIC读写标志 */
-#define IIC_FLG_WRITE							0x0000 // 写数据，主机到从机
-#define IIC_FLG_READ								0x0001 // 读数据，从机到主机
-
-#define IIC_FLG_NO_READ_ACK				0x0100 // 主机读操作不回复ACK
-#define IIC_FLG_IGNORE_NAK				0x0200 // 忽略从机的ACK和NACK
-#define IIC_FLG_NOSTART						0x0400 // 不发送起始信号
-#define IIC_FLG_NOSTOP						0x0800 // 不发送停止信号
+#define IIC_FLG_WRITE							0x0000 // 写操作
+#define IIC_FLG_READ								0x0001 // 读操作
+#define IIC_FLG_START							0x0010 // 读/写数据发起起始信号
+#define IIC_FLG_NOSTART						0x0020 // 读/写数据不发起起始信号
+#define IIC_FLG_STOP								0x0040 // 传输完成发起停止信号
+#define IIC_FLG_NOSTOP						0x0080 // 传输完成不发起停止信号
+#define IIC_FLG_NO_READ_ACK				0x0100 // 主机读操作不应答ACK
+#define IIC_FLG_READ_END_NACK			0x0200 // 读数据最后应答NACK
+#define IIC_FLG_IGNORE_NAK				0x0400 // 忽略从机应答的ACK和NACK
 
 
 
@@ -73,7 +75,7 @@ extern "C" {
 		**输入参数:
 		**                device: 待关闭的设备
 		**输出参数: 无
-		**函数返回: 指向实际数据类型的指针对象
+		**函数返回: 无
 		**********************************************************************************************************************/
 		void (*close)(device_t* device);
 

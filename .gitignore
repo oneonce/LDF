@@ -54,3 +54,5 @@ projects/IAR_840/device_driver.ewt
 projects/IAR_840/device_driver.ewt
 *.ewp
 *.ewt
+projects/IAR_840/device_driver.ewt
+*.ipch

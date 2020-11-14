@@ -18,6 +18,14 @@ extern "C" {
 
 
 
+/* CS控制标志 */
+#define SPI_FLG_CS_START_KEEP			0x0000 // 传输之前保持最后一次CS状态(不执行任何CS操作)
+#define SPI_FLG_CS_START_OPEN			0x0001 // 传输之前执行片选操作
+#define SPI_FLG_CS_END_KEEP				0x0002 // 传输结束后保持片选状态
+#define SPI_FLG_CS_END_CLOSE				0x0004 // 传输结束后关闭片选(不片选)
+
+
+
 
 	enum SPI_TYPE
 	{
@@ -46,12 +54,21 @@ extern "C" {
 		SPI_CPHA_SECOND, // 第二个时钟边缘采集数据
 	};
 
-	enum SPI_FIRST_TRANSFER
+	/* 数据移位方向MSG/LSB */
+	enum SPI_SHIFT_DIRECTION
 	{
-		SPI_FIRST_MSB = 0, // MSB
-		SPI_FIRST_LSB, // LSB
+		SPI_SHIFT_DIR_MSB = 0, // MSB
+		SPI_SHIFT_DIR_LSB, // LSB
 	};
 
+	/* 发送数据完成后数据线状态 */
+	enum SPI_DATA_SIGNAL
+	{
+		SPI_DATA_SIGNAL_KEEP, // 发送完成后数据信号脚保持最后状态(高/低)
+		SPI_DATA_SIGNAL_TRISTATE, // 发送完成后数据信号为三态
+	};
+
+	/* 常用SPI信号脚 */
 	enum SPI_SIGNAL_PIN
 	{
 		SPI_SIGNAL_PIN_CS = 0,
@@ -60,12 +77,7 @@ extern "C" {
 		SPI_SIGNAL_PIN_MISO,
 	};
 
-	enum SPI_PIN_LEVEL
-	{
-		SPI_PIN_LEVEL_LOW = 0,
-		SPI_PIN_LEVEL_HIGH,
-	};
-
+	/* SPI外设配置参数 */
 	typedef struct spi_cfg_parameter
 	{
 		uint32_t speed; // 速率
@@ -73,7 +85,8 @@ extern "C" {
 		enum SPI_MODE mode; // 模式
 		enum SPI_CLOCK_POLARITY polarity; // 时钟极性
 		enum SPI_CLOCK_PHASE phase; // 时钟相位
-		enum SPI_FIRST_TRANSFER first_trans; // 第一个发送数据的有效位
+		enum SPI_SHIFT_DIRECTION shift_dir; // 数据移动方向(MSB/LSB)
+		enum SPI_DATA_SIGNAL data_signal; // 数据发送完成后数据信号状态
 		uint16_t delay_after_cs; // 片选之后传输数据前延时时间(时间单位根据实际情况而定)
 		uint16_t delay_before_cs_close; // 传输完成数据后关闭CS前的延时时间(时间单位根据实际情况而定)
 	} spi_cfg_parameter_t;
@@ -82,11 +95,9 @@ extern "C" {
 	{
 		const void* tx_buffer; // 发送缓冲区
 		void* rx_buffer; // 接收缓冲区
-		uint32_t tx_length; // 发送缓冲区长度
-		uint32_t rx_length; // 接收缓冲区长度
-		uint8_t data_bits; // 数据位宽，如: 8/16/32bit
-		uint8_t close_cs; // 传输后成后是否关闭CS，为0不关闭CS信号，为1时表明传输完成后关闭CS信号(即不片选)
-		uint16_t cs_cmd; // 片选命令，实际值自定义
+		int32_t rx_length; // 接收缓冲区长度
+		int16_t tx_length; // 发送缓冲区长度
+		uint16_t cs_flg; // 控制标志，参考SPI_FLG_CS_
 	} spi_message_t;
 
 
@@ -112,7 +123,7 @@ extern "C" {
 		**输入参数:
 		**                device: 待关闭的设备
 		**输出参数: 无
-		**函数返回: 指向实际数据类型的指针对象
+		**函数返回: 无
 		**********************************************************************************************************************/
 		void (*close)(device_t* device);
 
@@ -124,9 +135,9 @@ extern "C" {
 		**                pin: 信号引脚
 		**                level: 需要设置的电平
 		**输出参数: 无
-		**函数返回: 指向实际数据类型的指针对象
+		**函数返回: 无
 		**********************************************************************************************************************/
-		void (*pin_level_ctrl)(enum SPI_SIGNAL_PIN pin, enum SPI_PIN_LEVEL level);
+		void (*pin_level_ctrl)(enum SPI_SIGNAL_PIN pin, enum IO_LEVEL_EDGE level);
 
 		/**********************************************************************************************************************
 		**函数名称: transfer

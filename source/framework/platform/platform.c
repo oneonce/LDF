@@ -12,12 +12,19 @@
 **其       他:
 ***********************************************************************************************************************/
 #include <platform/platform.h>
+#include <platform/platform_mutex.h>
 
-#include <driver_uart_debug.h>
-#include <driver_iic_bus01.h>
-#include <driver_iic_eeprom_at24c01.h>
+/* UART */
+#include <demo_uart_debug.h>
+
+/* IIC */
+#include <demo_iic_bus01.h>
+#include <demo_iic_eeprom_at24c01.h>
+
+/* SPI */
+#include <demo_spi_bus01.h>
+
 //#include ...
-
 
 
 
@@ -36,7 +43,18 @@
 **********************************************************************************************************************/
 void platform_init()
 {
-	init_driver_uart_debug();
+	register_plat_lock(); // platform mutex
+
+	/* UART */
+	init_demo_uart_debug();
+
+	/* IIC */
+	init_demo_iic_bus01();
+
+	init_demo_iic_eeprom_at24c01();
+
+	/* SPI */
+	init_demo_spi_bus01();
 }
 
 

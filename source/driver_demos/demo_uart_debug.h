@@ -7,12 +7,12 @@
 **                1. 该头文件不能包含任何平台(或芯片厂商)相关的头文件
 **                2. 该头文件只能被platform.c包含(include)
 **作       者: oneonce
-**日       期: 2020.04.09
+**日       期: 2020.03.27
 **版       本: 1.0
 **其       他:
 ***********************************************************************************************************************/
-#ifndef __DRIVER_IIC_DEMO_H__
-#define __DRIVER_IIC_DEMO_H__
+#ifndef __DEMO_UART_DEBUG_H__
+#define __DEMO_UART_DEBUG_H__
 
 #ifdef __cplusplus
 extern "C" {
@@ -21,12 +21,11 @@ extern "C" {
 
 
 
-void init_driver_iic_bus01();
+void init_demo_uart_debug();
 
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif // !__DRIVER_IIC_DEMO_H__
-
+#endif // !__DEMO_UART_DEBUG_H__

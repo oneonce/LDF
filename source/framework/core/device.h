@@ -13,7 +13,7 @@
 #include <core/device_bus.h>
 #include <core/device_type.h>
 #include <core/device_state.h>
-#include <core/device_error.h>
+#include <core/error_code.h>
 #include <core/device_macro.h>
 #include <utils/list_head.h>
 
@@ -22,6 +22,22 @@
 extern "C" {
 #endif
 
+
+	/* 电平 */
+	enum IO_LEVEL_EDGE
+	{
+		IO_LEVEL_EDGE_LOW = 0, // 低
+		IO_LEVEL_EDGE_HIGH, // 高
+		IO_LEVEL_EDGE_TRISTATE, // 三态
+		IO_LEVEL_EDGE_RISING, // 上升沿
+		IO_LEVEL_EDGE_FALLING, // 下降沿
+	};
+
+	enum IO_DIRECTION
+	{
+		IO_DIR_INPUT = 0, // 输入
+		IO_DIR_OURPUT = 1, // 输出
+	};
 
 
 

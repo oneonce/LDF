@@ -31,25 +31,34 @@
     <Filter Include="framework\driver_demos">
       <UniqueIdentifier>{0d2c7d8d-1da4-471f-8495-86bb2c709bf9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="framework\interface\lock">
+      <UniqueIdentifier>{d65e7933-0756-4f8a-a0b2-35aca5237978}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\source\driver_demos\driver_uart_debug.c">
-      <Filter>framework\driver_demos</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\source\framework\platform\platform.c">
       <Filter>framework\platform</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\source\driver_demos\driver_iic_bus01.c">
-      <Filter>framework\driver_demos</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\source\driver_demos\driver_iic_eeprom_at24c01.c">
-      <Filter>framework\driver_demos</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\source\framework\core\device_driver_manager.c">
       <Filter>framework\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\driver_demos\demo_spi_bus01.c">
+      <Filter>framework\driver_demos</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\driver_demos\demo_iic_bus01.c">
+      <Filter>framework\driver_demos</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\driver_demos\demo_iic_eeprom_at24c01.c">
+      <Filter>framework\driver_demos</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\driver_demos\demo_uart_debug.c">
+      <Filter>framework\driver_demos</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\framework\platform\platform_mutex.c">
+      <Filter>framework\platform</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -57,9 +66,6 @@
       <Filter>framework\core</Filter>
     </ClInclude>
     <ClInclude Include="..\..\source\framework\core\device_bus.h">
-      <Filter>framework\core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\source\framework\core\device_error.h">
       <Filter>framework\core</Filter>
     </ClInclude>
     <ClInclude Include="..\..\source\framework\core\device_macro.h">
@@ -74,9 +80,6 @@
     <ClInclude Include="..\..\source\framework\core\types.h">
       <Filter>framework\core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\source\driver_demos\driver_uart_debug.h">
-      <Filter>framework\driver_demos</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\source\framework\interface\interface.h">
       <Filter>framework\interface</Filter>
     </ClInclude>
@@ -85,12 +88,6 @@
     </ClInclude>
     <ClInclude Include="..\..\source\framework\utils\list_head.h">
       <Filter>framework\utils</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\source\driver_demos\driver_iic_bus01.h">
-      <Filter>framework\driver_demos</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\source\driver_demos\driver_iic_eeprom_at24c01.h">
-      <Filter>framework\driver_demos</Filter>
     </ClInclude>
     <ClInclude Include="..\..\source\framework\interface\device_driver_spi.h">
       <Filter>framework\interface</Filter>
@@ -108,6 +105,45 @@
       <Filter>framework\core</Filter>
     </ClInclude>
     <ClInclude Include="..\..\source\framework\interface\device_driver_can.h">
+      <Filter>framework\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\driver_demos\demo_spi_bus01.h">
+      <Filter>framework\driver_demos</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\driver_demos\demo_iic_bus01.h">
+      <Filter>framework\driver_demos</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\driver_demos\demo_iic_eeprom_at24c01.h">
+      <Filter>framework\driver_demos</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\driver_demos\demo_uart_debug.h">
+      <Filter>framework\driver_demos</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\framework\core\error_code.h">
+      <Filter>framework\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\framework\interface\device_driver_gpio.h">
+      <Filter>framework\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\framework\interface\device_driver_adc.h">
+      <Filter>framework\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\framework\interface\lock\mutex.h">
+      <Filter>framework\interface\lock</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\framework\platform\platform_mutex.h">
+      <Filter>framework\platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\framework\interface\device_driver_ext_irq.h">
+      <Filter>framework\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\framework\interface\device_driver_soft_irq.h">
+      <Filter>framework\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\framework\interface\device_driver_timer.h">
+      <Filter>framework\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\framework\interface\device_driver_usb.h">
       <Filter>framework\interface</Filter>
     </ClInclude>
   </ItemGroup>

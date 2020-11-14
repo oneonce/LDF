@@ -2110,22 +2110,28 @@
     <group>
         <name>driver_demos</name>
         <file>
-            <name>$PROJ_DIR$\..\..\source\driver_demos\driver_iic_bus01.c</name>
+            <name>$PROJ_DIR$\..\..\source\driver_demos\demo_iic_bus01.c</name>
         </file>
         <file>
-            <name>$PROJ_DIR$\..\..\source\driver_demos\driver_iic_bus01.h</name>
+            <name>$PROJ_DIR$\..\..\source\driver_demos\demo_iic_bus01.h</name>
         </file>
         <file>
-            <name>$PROJ_DIR$\..\..\source\driver_demos\driver_iic_eeprom_at24c01.c</name>
+            <name>$PROJ_DIR$\..\..\source\driver_demos\demo_iic_eeprom_at24c01.c</name>
         </file>
         <file>
-            <name>$PROJ_DIR$\..\..\source\driver_demos\driver_iic_eeprom_at24c01.h</name>
+            <name>$PROJ_DIR$\..\..\source\driver_demos\demo_iic_eeprom_at24c01.h</name>
         </file>
         <file>
-            <name>$PROJ_DIR$\..\..\source\driver_demos\driver_uart_debug.c</name>
+            <name>$PROJ_DIR$\..\..\source\driver_demos\demo_spi_bus01.c</name>
         </file>
         <file>
-            <name>$PROJ_DIR$\..\..\source\driver_demos\driver_uart_debug.h</name>
+            <name>$PROJ_DIR$\..\..\source\driver_demos\demo_spi_bus01.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\driver_demos\demo_uart_debug.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\source\driver_demos\demo_uart_debug.h</name>
         </file>
     </group>
     <group>
@@ -2145,9 +2151,6 @@
                 <name>$PROJ_DIR$\..\..\source\framework\core\device_driver_manager.h</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\..\..\source\framework\core\device_error.h</name>
-            </file>
-            <file>
                 <name>$PROJ_DIR$\..\..\source\framework\core\device_macro.h</name>
             </file>
             <file>
@@ -2157,16 +2160,34 @@
                 <name>$PROJ_DIR$\..\..\source\framework\core\device_type.h</name>
             </file>
             <file>
+                <name>$PROJ_DIR$\..\..\source\framework\core\error_code.h</name>
+            </file>
+            <file>
                 <name>$PROJ_DIR$\..\..\source\framework\core\types.h</name>
             </file>
         </group>
         <group>
             <name>interface</name>
+            <group>
+                <name>lock</name>
+                <file>
+                    <name>$PROJ_DIR$\..\..\source\framework\interface\lock\mutex.h</name>
+                </file>
+            </group>
+            <file>
+                <name>$PROJ_DIR$\..\..\source\framework\interface\device_driver_adc.h</name>
+            </file>
             <file>
                 <name>$PROJ_DIR$\..\..\source\framework\interface\device_driver_can.h</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\..\..\source\framework\interface\device_driver_eeprom.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\source\framework\interface\device_driver_ext_irq.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\source\framework\interface\device_driver_gpio.h</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\..\..\source\framework\interface\device_driver_iic.h</name>
@@ -2175,7 +2196,13 @@
                 <name>$PROJ_DIR$\..\..\source\framework\interface\device_driver_spi.h</name>
             </file>
             <file>
+                <name>$PROJ_DIR$\..\..\source\framework\interface\device_driver_timer.h</name>
+            </file>
+            <file>
                 <name>$PROJ_DIR$\..\..\source\framework\interface\device_driver_uart.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\source\framework\interface\device_driver_usb.h</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\..\..\source\framework\interface\interface.h</name>
@@ -2188,6 +2215,12 @@
             </file>
             <file>
                 <name>$PROJ_DIR$\..\..\source\framework\platform\platform.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\source\framework\platform\platform_mutex.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\source\framework\platform\platform_mutex.h</name>
             </file>
         </group>
         <group>

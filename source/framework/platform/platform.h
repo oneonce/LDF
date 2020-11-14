@@ -30,8 +30,11 @@ extern "C" {
   参考device.h中device_t中id字段
   自定义设备ID必须在[DEVICE_ID_USR_BASE, 65535]之间
 ***********************************************************************************************************************/
-#define PLATFORM_DEV_ID_UART_DEBUG					(DEVICE_ID_USR_BASE + 0) // 自定义调试串口ID
-#define PLATFORM_DEV_ID_IIC_DEMO						(DEVICE_ID_USR_BASE + `) // 自定义IIC演示ID
+#define DEVICE_ID_UART_DEBUG								(DEVICE_ID_USR_BASE + 0) // 自定义调试串口ID
+
+#define DEVICE_ID_IIC_BUS01										(DEVICE_ID_USR_BASE + 1) // 自定义IIC演示ID
+
+#define DEVICE_ID_SPI_BUS01									(DEVICE_ID_USR_BASE + 2) // 自定义SPI演示ID
 
 
 
@@ -122,7 +125,6 @@ extern "C" {
 
 /* GPIO复用功能 */
 #define GPIO_MUX_RESERVE								(1 << 0) // 保留，或通用(即业务层不关注复用功能)
-#define GPIO_MUX_LED										(1 << 1) // 控制LED(硬件设计决定)
 //#define GPIO_MUX_...
 
 
@@ -130,10 +132,10 @@ extern "C" {
 
 /* IIC复用功能 */
 #define IIC_MUX_RESERVE									(1 << 0) // 保留，或通用(即业务层不关注复用功能)
-#define IIC_BUS_01												(1 << 1) // 总线01
-#define IIC_BUS_02												(1 << 2) // 总线01
-#define IIC_BUS_03												(1 << 3) // 总线01
-#define IIC_BUS_04												(1 << 4) // 总线01
+#define IIC_MUX_BUS_01									(1 << 1) // 总线01
+#define IIC_MUX_BUS_02									(1 << 2) // 总线01
+#define IIC_MUX_BUS_03									(1 << 3) // 总线01
+#define IIC_MUX_BUS_04									(1 << 4) // 总线01
 #define IIC_MUX_CAMERA									(1 << 5) // 触摸使用的IIC(硬件设计决定)
 #define IIC_MUX_TOUCH									(1 << 6) // 触摸使用的IIC(硬件设计决定)
 //#define IIC_MUX_...
@@ -166,10 +168,30 @@ extern "C" {
 
 
 
+
+/* software IRQ */
+#define SOFT_IRQ_MUX_RESERVE						(1 << 0) // 保留
+
+
+
+// 中断号定义
+#define SOFT_IRQ_ID_01										1
+
+
+
+
+
+
+
+
 /* SPI复用功能 */
 #define SPI_MUX_RESERVE									(1 << 0) // 保留，或通用(即业务层不关注复用功能)
-#define SPI_MUX_NOR_FLASH							(1 << 1) // NOR FLASH使用的SPI(硬件设计决定)
-#define SPI_MUX_LCD											(1 << 2) // LCD使用的SPI(硬件设计决定)
+#define SPI_MUX_BUS_01									(1 << 1) // BUS-01
+#define SPI_MUX_BUS_02									(1 << 2) // BUS-02
+#define SPI_MUX_BUS_03									(1 << 3) // BUS-03
+#define SPI_MUX_BUS_04									(1 << 4) // BUS-04
+#define SPI_MUX_NOR_FLASH							(1 << 5) // NOR FLASH使用的SPI(硬件设计决定)
+#define SPI_MUX_LCD											(1 << 6) // LCD使用的SPI(硬件设计决定)
 //#define SPI_MUX_...
 
 

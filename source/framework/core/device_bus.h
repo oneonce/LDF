@@ -23,9 +23,9 @@ extern "C" {
 /* 总线ID定义，如果需要添加更多的总线，则在Max之前添加 */
 enum DEVICE_BUS_ID
 {
-	DEV_BUS_DEFAULT = 0, // 默认总线
+	DEVICE_BUS_DEFAULT = 0, // 默认总线
 
-	DEV_BUS_MAX // 新的总线类型在此之前添加(设备驱动管理需使用MAX)
+	DEVICE_BUS_MAX // 新的总线类型在此之前添加(设备驱动管理需使用MAX)
 };
 
 

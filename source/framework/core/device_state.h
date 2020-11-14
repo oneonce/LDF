@@ -20,8 +20,8 @@ extern "C" {
 
 
 
-#define DEV_STATE_FREE							0 // 空闲状态
-#define DEV_STATE_USING                         1 // 使用中
+#define DEVICE_STATE_FREE							0 // 空闲状态
+#define DEVICE_STATE_INUSE                         1 // 使用中
 
 
 #ifdef __cplusplus

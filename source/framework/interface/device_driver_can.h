@@ -8,8 +8,8 @@
 *版       本: 1.0
 *其       他:
 ***********************************************************************************************************************/
-#ifndef __DEVICE_DRIVER_H__
-#define __DEVICE_DRIVER_H__
+#ifndef __DEVICE_DRIVER_CAN_H__
+#define __DEVICE_DRIVER_CAN_H__
 #include <core/device.h>
 
 #ifdef __cplusplus
@@ -42,7 +42,7 @@ extern "C" {
 
 	typedef struct can_message
 	{
-		enum CAN_ID can_id; // 参考CAN_ID_BITS
+		enum CAN_ID can_id; // 参考CAN_ID
 		enum CAN_RTR_FRAME rtr; // 消息类型(数据帧/远程帧)，参考CAN_RTR_FRAME
 		uint32_t msg_id; // 消息ID
 		uint8_t* data; // 消息数据缓冲区
@@ -86,7 +86,7 @@ extern "C" {
 		**输入参数:
 		**                device: 待关闭的设备
 		**输出参数: 无
-		**函数返回: 指向实际数据类型的指针对象
+		**函数返回: 无
 		**********************************************************************************************************************/
 		void (*close)(device_t* device);
 
@@ -183,4 +183,4 @@ extern "C" {
 }
 #endif
 
-#endif // !__DEVICE_DRIVER_H__
+#endif // !__DEVICE_DRIVER_CAN_H__

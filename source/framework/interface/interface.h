@@ -10,11 +10,20 @@
 ***********************************************************************************************************************/
 #ifndef __INTERFACE_H__
 #define __INTERFACE_H__
+#include <interface/device_driver_adc.h>
 #include <interface/device_driver_can.h>
 #include <interface/device_driver_eeprom.h>
+#include <interface/device_driver_ext_irq.h>
+#include <interface/device_driver_gpio.h>
 #include <interface/device_driver_iic.h>
+#include <interface/device_driver_soft_irq.h>
 #include <interface/device_driver_spi.h>
+#include <interface/device_driver_timer.h>
 #include <interface/device_driver_uart.h>
+#include <interface/device_driver_usb.h>
+
+
+
 
 #ifdef __cplusplus
 extern "C" {
