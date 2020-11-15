@@ -49,7 +49,7 @@ extern "C" {
 		void (*do_irq)(uint32_t irq_id);
 
 		/**********************************************************************************************************************
-		**函数名称: register_callback
+		**函数名称: register_irq_callback
 		**功能描述: 注册软中断回调函数
 		**                注:
 		**                1. 必须在open之前注册
@@ -59,7 +59,7 @@ extern "C" {
 		**输出参数: 无
 		**函数返回: 无
 		**********************************************************************************************************************/
-		void (*register_callback)(uint32_t irq_id, soft_irq_callback callback);
+		void (*register_irq_callback)(uint32_t irq_id, soft_irq_callback callback);
 
 	} device_driver_soft_irq_t;
 

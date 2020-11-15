@@ -40,17 +40,27 @@ extern "C" {
 	};
 
 
+	/* 时间单位 */
+	enum TIME_UNIT
+	{
+		TIME_UNIT_SEC = 0, // 秒/s
+		TIME_UNIT_MS, // 毫秒/ms
+		TIME_UNIT_US, // 微秒/us
+		TIME_UNIT_NS, // 纳秒/ns
+		TIME_UNIT_PS, // 皮秒/ps
+	};
 
-typedef struct
-{
-	list_head_t bus_node; // 用于挂载到总线的节点
-	uint16_t id; // 设备ID
-	uint8_t state; // 设备状态。调用driver的close()关闭时把传入的device状态改为DEV_STATE_FREE
-    uint8_t unused; // 未使用字段
-	enum DEVICE_TYPE type; // 设备类型
-	enum DEVICE_BUS_ID bus_id; // 总线ID
-	uint32_t multiplex; // 功能复用(每一种功能占1bit)，如某些外设可通过跳线帽切换不同的功能
-} device_t;
+
+	typedef struct
+	{
+		list_head_t bus_node; // 用于挂载到总线的节点
+		uint16_t id; // 设备ID
+		uint8_t state; // 设备状态。调用driver的close()关闭时把传入的device状态改为DEV_STATE_FREE
+		uint8_t unused; // 未使用字段
+		enum DEVICE_TYPE type; // 设备类型
+		enum DEVICE_BUS_ID bus_id; // 总线ID
+		uint32_t multiplex; // 功能复用(每一种功能占1bit)，如某些外设可通过跳线帽切换不同的功能
+	} device_t;
 
 
 #ifdef __cplusplus
