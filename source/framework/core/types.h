@@ -53,6 +53,11 @@ typedef unsigned long long uint64_t;
 #endif // !uint64_t
 
 
+#ifndef  color_t
+typedef uint32_t  color_t;
+#endif // ! color_t
+
+
 #ifdef __cplusplus
 }
 #endif

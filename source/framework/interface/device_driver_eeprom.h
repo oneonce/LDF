@@ -19,7 +19,7 @@ extern "C" {
 
 
 
-	typedef struct device_driver_eeprom
+	typedef struct
 	{
 		device_t device;
 
@@ -56,7 +56,7 @@ extern "C" {
 		**                buffer: 读数据缓冲区
 		**函数返回:
 		**                >=0: 实际读取数据字节数
-		**                <0:  参考DEVICE_ERROR
+		**                <0:  参考ERROR_CODES
 		**********************************************************************************************************************/
 		int32_t (*read)(uint32_t address, uint8_t addr_size, uint8_t* buffer, const int32_t buffer_size, const uint32_t millisecond);
 
@@ -72,7 +72,7 @@ extern "C" {
 		**输出参数: 无
 		**函数返回:
 		**                >=0: 实际写数据字节数
-		**                <0:  参考DEVICE_ERROR
+		**                <0:  参考ERROR_CODES
 		**********************************************************************************************************************/
 		int32_t (*write)(uint32_t address, uint8_t addr_size, const uint8_t* buffer, const int32_t buffer_size, const uint32_t millisecond);
 	} device_driver_eeprom_t;

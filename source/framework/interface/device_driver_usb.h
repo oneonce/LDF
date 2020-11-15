@@ -1,3 +1,13 @@
+/**********************************************************************************************************************
+**                            Copyright(C), oneonce. 2020-2025. All rights reserved.
+***********************************************************************************************************************
+*文件名称: device_driver_usb.h
+*功能描述: USB驱动接口
+*作       者: oneonce
+*日       期: 2020.04.26
+*版       本: 1.0
+*其       他:
+***********************************************************************************************************************/
 #ifndef __DEVICE_DRIVER_USB_H__
 #define __DEVICE_DRIVER_USB_H__
 #include <core/device.h>
@@ -61,7 +71,7 @@ extern "C" {
 		uint16_t max_packet_size; // 端点所支持的最大包长度
 	} usb_endpoint_t;
 
-	typedef struct usb_interface
+	typedef struct
 	{
 		uint8_t desc_type; // 描述符类型，接口描述符类为0x04
 		uint8_t number; // 接口号
@@ -70,7 +80,7 @@ extern "C" {
 		usb_endpoint_t* endpoints; // 接口下的端点
 	} usb_interface_t;
 
-	typedef struct usb_request_type
+	typedef struct
 	{
 		uint8_t recipient : 5; // 接收者，参考USB_REQ_REC_
 		uint8_t type : 2; // 类型，参考USB_REQ_TYPE_
@@ -79,7 +89,7 @@ extern "C" {
 
 
 
-	typedef struct device_driver_usb
+	typedef struct
 	{
 		device_t device;
 
@@ -111,7 +121,7 @@ extern "C" {
 		**函数返回: 
 		**                >0: 获取接口成功
 		**                =0: 无接口?发生错误
-		**                <0:  参考DEVICE_ERROR
+		**                <0:  参考ERROR_CODES
 		**********************************************************************************************************************/
 		int32_t (*get_interface)(usb_interface_t* interfaces);
 
@@ -123,7 +133,7 @@ extern "C" {
 		**输出参数: 无
 		**函数返回:
 		**                >=0: 连接成功
-		**                <0:  参考DEVICE_ERROR
+		**                <0:  参考ERROR_CODES
 		**********************************************************************************************************************/
 		int32_t (*connect)(usb_interface_t* intf);
 
@@ -135,7 +145,7 @@ extern "C" {
 		**输出参数: 无
 		**函数返回:
 		**                >=0: 断开连接成功
-		**                <0:  参考DEVICE_ERROR
+		**                <0:  参考ERROR_CODES
 		**********************************************************************************************************************/
 		int32_t (*disconnect)(usb_interface_t* intf);
 
@@ -153,7 +163,7 @@ extern "C" {
 		**输出参数: 无
 		**函数返回:
 		**                >=0: 实际传输字节数
-		**                <0:  参考DEVICE_ERROR
+		**                <0:  参考ERROR_CODES
 		**********************************************************************************************************************/
 		int32_t (*control_transfer)(usb_request_type_t req_type, int32_t req_no, int32_t value, int32_t index, uint8_t * buffer, int32_t size, uint32_t millsecond);
 
@@ -168,7 +178,7 @@ extern "C" {
 		**输出参数: 无
 		**函数返回: 
 		**                >=0: 实际传输字节数
-		**                <0:  参考DEVICE_ERROR
+		**                <0:  参考ERROR_CODES
 		**********************************************************************************************************************/
 		int32_t (*bulk_transfer)(usb_endpoint_t* endpoint, uint8_t* data, int32_t size, uint32_t millsecond);
 	} device_driver_usb_t;

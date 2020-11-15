@@ -78,7 +78,7 @@ extern "C" {
 	};
 
 	/* SPI外设配置参数 */
-	typedef struct spi_cfg_parameter
+	typedef struct
 	{
 		uint32_t speed; // 速率
 		enum SPI_TYPE type; // SPI类型
@@ -128,7 +128,7 @@ extern "C" {
 		void (*close)(device_t* device);
 
 		/**********************************************************************************************************************
-		**函数名称: pin_level_control
+		**函数名称: pin_level_ctrl
 		**功能描述: 引脚电平控制
 		**                注: 某些外设(如CC1101)需要手动控制信号脚以进入其他工作模式
 		**输入参数:
@@ -150,7 +150,7 @@ extern "C" {
 		**                msg: 收到的数据
 		**函数返回:
 		**                >=0: 实际传输数据字节数
-		**                <0:  参考DEVICE_ERROR
+		**                <0:  参考ERROR_CODES
 		**********************************************************************************************************************/
 		int32_t (*transfer)(spi_message_t* msg, int32_t msg_cnt, const uint32_t millisecond);
 	} device_driver_spi_t;

@@ -146,5 +146,11 @@
     <ClInclude Include="..\..\source\framework\interface\device_driver_usb.h">
       <Filter>framework\interface</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\source\framework\interface\device_driver_block.h">
+      <Filter>framework\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\framework\interface\device_driver_fb.h">
+      <Filter>framework\interface</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -14,7 +14,7 @@ extern "C" {
 
 
 
-	typedef struct device_driver_soft_irq
+	typedef struct
 	{
 		device_t device;
 

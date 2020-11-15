@@ -68,7 +68,7 @@ extern "C" {
 	};
 
 	/* 串口参数 */
-	typedef struct uart_cfg_parameter
+	typedef struct
 	{
 		uint32_t baud_rate;
 		enum UART_DATA_BITS data_bits;
@@ -88,7 +88,7 @@ extern "C" {
 
 
 	/* 串口驱动接口 */
-	typedef struct device_driver_uart
+	typedef struct
 	{
 		device_t device;
 
@@ -129,7 +129,7 @@ extern "C" {
 		**                buffer: 读数据缓冲区
 		**函数返回:
 		**                >=0: 实际读取数据字节数
-		**                <0:  参考DEVICE_ERROR
+		**                <0:  参考ERROR_CODES
 		**********************************************************************************************************************/
 		int32_t (*sync_read)(uint8_t* buffer, const int32_t buffer_size, const uint32_t millisecond);
 
@@ -145,7 +145,7 @@ extern "C" {
 		**输出参数: 无
 		**函数返回:
 		**                >=0: 实际写数据字节数
-		**                <0:  参考DEVICE_ERROR
+		**                <0:  参考ERROR_CODES
 		**********************************************************************************************************************/
 		int32_t (*write)(const uint8_t* buffer, const int32_t buffer_size, const uint32_t millsecond);
 

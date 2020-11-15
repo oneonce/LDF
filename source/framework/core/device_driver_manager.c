@@ -29,7 +29,6 @@ bool is_ignore_device_type(device_t* device)
 {
 	if ((DEVICE_TYPE_MUTEX == device->type)
 		|| (DEVICE_TYPE_GPIO == device->type) // 一个GPIO驱动可能实现多个I/O驱动，关闭某一个会导致其他I/O无法使用
-		|| (DEVICE_TYPE_ADC == device->type) // ADC可能有多个通道
 		|| (DEVICE_TYPE_EXT_INT == device->type) // 可能有多个外部中断s
 		)
 	{

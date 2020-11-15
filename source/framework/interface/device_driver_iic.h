@@ -43,7 +43,7 @@ extern "C" {
 
 
 	/* IIC收发消息 */
-	typedef struct iic_message
+	typedef struct
 	{
 		uint16_t addr_slave; // 从设备地址
 		enum IIC_ADDR_BIT addr_bits; // 地址位数
@@ -90,7 +90,7 @@ extern "C" {
 		**                msg: 收到的数据
 		**函数返回:
 		**                >=0: 实际传输数据字节数
-		**                <0:  参考DEVICE_ERROR
+		**                <0:  参考ERROR_CODES
 		**********************************************************************************************************************/
 		int32_t (*transfer)(iic_message_t* msg, int32_t msg_cnt, const uint32_t millisecond);
 	} device_driver_iic_t;

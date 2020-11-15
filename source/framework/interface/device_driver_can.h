@@ -40,7 +40,7 @@ extern "C" {
 	};
 
 
-	typedef struct can_message
+	typedef struct
 	{
 		enum CAN_ID can_id; // 参考CAN_ID
 		enum CAN_RTR_FRAME rtr; // 消息类型(数据帧/远程帧)，参考CAN_RTR_FRAME
@@ -58,7 +58,7 @@ extern "C" {
 	typedef void (*can_tx_callback)(uint16_t device_id);
 
 
-	typedef struct device_driver_can
+	typedef struct
 	{
 		device_t device;
 
@@ -95,9 +95,14 @@ extern "C" {
 		**功能描述: 获取CHIP支持过滤器总个数
 		**输入参数: 无
 		**输出参数: 无
-		**函数返回: 总个数
+		**函数返回: 
+		**                >=0: 实际个数
+		**                <0: 参考ERROR_CODES
+		**                       典型错误:
+		**                       不支持: ERROR_CODE_NOT_SUPPORT
+		**                       已用完: ERROR_CODE_NO_MORE
 		**********************************************************************************************************************/
-		int32_t (*filter_number)();
+		uint16_t (*filter_number)();
 
 		/**********************************************************************************************************************
 		**函数名称: add_filter
@@ -136,7 +141,7 @@ extern "C" {
 		**输出参数: 无
 		**函数返回:
 		**                >=0: 实际读取到数据字节数
-		**                <0:  参考DEVICE_ERROR
+		**                <0:  参考ERROR_CODES
 		**********************************************************************************************************************/
 		int32_t (*sync_read)(can_message_t* msg, const uint32_t millisecond);
 
@@ -150,7 +155,7 @@ extern "C" {
 		**输出参数: 无
 		**函数返回:
 		**                >=0: 实际发送数据字节数
-		**                <0:  参考DEVICE_ERROR
+		**                <0:  参考ERROR_CODES
 		**********************************************************************************************************************/
 		int32_t (*write)(can_message_t* msg, int32_t msg_cnt, const uint32_t millisecond);
 

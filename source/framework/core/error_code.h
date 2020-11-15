@@ -23,10 +23,14 @@ extern "C" {
 enum ERROR_CODES
 {
 	ERROR_CODE_SUCCESS = 0,
-	ERROR_CODE_FAILE = -1, // 未定义的错误
-	ERROR_CODE_PARAMETER = -2, // 参数错误
-	ERROR_CODE_NO_MORE_MEM = -3, // 内存不足
-	ERROR_CODE_SYNC_CALL = -4, // 异步模式调用同步方法错误
+	ERROR_CODE_FAILE = -1, // 未定义/一般的错误
+	ERROR_CODE_TIMEOUT = -2, // 超时
+	ERROR_CODE_PARAMETER = -3, // 参数错误
+	ERROR_CODE_NO_MORE_MEM = -4, // 内存不足
+	ERROR_CODE_SYNC_CALL = -5, // 异步模式调用同步方法错误
+	ERROR_CODE_NOT_SUPPORT = -6, // 不支持
+	ERROR_CODE_NO_MORE = -7, // 没有更多
+	ERROR_CODE_CLOSED = -8, // 已关闭
 };
 
 
