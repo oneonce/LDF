@@ -13,7 +13,7 @@
 #include <core/device_bus.h>
 #include <core/device_type.h>
 #include <core/device_state.h>
-#include <core/error_code.h>
+#include <core/error_codes.h>
 #include <core/device_macro.h>
 #include <utils/list_head.h>
 

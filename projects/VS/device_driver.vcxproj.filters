@@ -119,9 +119,6 @@
     <ClInclude Include="..\..\source\driver_demos\demo_uart_debug.h">
       <Filter>framework\driver_demos</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\source\framework\core\error_code.h">
-      <Filter>framework\core</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\source\framework\interface\device_driver_gpio.h">
       <Filter>framework\interface</Filter>
     </ClInclude>
@@ -151,6 +148,9 @@
     </ClInclude>
     <ClInclude Include="..\..\source\framework\interface\device_driver_fb.h">
       <Filter>framework\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\framework\core\error_codes.h">
+      <Filter>framework\core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

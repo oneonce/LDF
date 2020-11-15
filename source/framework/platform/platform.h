@@ -194,18 +194,6 @@ extern "C" {
 
 
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/* PWM复用功能 */
-#define PWM_MUX_RESERVE								(1 << 0) // 保留，或通用(即业务层不关注复用功能)
-#define PWM_MUX_MOTOR								(1 << 1) // 控制马达(硬件设计决定)
-#define PWM_MUX_BUZZER								(1 << 2) // 控制蜂鸣器(硬件设计决定)
-#define PWM_MUX_LED										(1 << 3) // 控制LED(硬件设计决定)
-#define PWM_MUX_BG										(1 << 4) // 控制背光(硬件设计决定)
-//#define PWM_MUX_...
-
-
-
-
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /* software IRQ */
@@ -251,7 +239,21 @@ extern "C" {
 #define TIMER_MUX_RESERVE							(1 << 0) // 保留，或通用(即业务层不关注复用功能)
 #define TIMER_MUX_MILLI_SEC							(1 << 1) // 毫秒级定时器
 #define TIMER_MUX_MICRO_SEC						(1 << 2) // 微秒级定时器
+#define TIMER_MUX_PWM									(1 << 3) // PWM
+#define TIMER_MUX_CAPTURE							(1 << 4) // CAPTURE
+#define TIMER_MUX_COMPARE							(1 << 5) // OMPARE
 
+
+/* PWM通道 */
+//#define TIMER_PWM_CH_
+
+
+/* CAPTURE通道 */
+#define TIMER_CAPTURE_CH_
+
+
+/* CAPTURE通道 */
+#define TIMER_COMPARE_CH_
 
 
 

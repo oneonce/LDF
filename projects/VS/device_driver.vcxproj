@@ -35,7 +35,7 @@
     <ClInclude Include="..\..\source\driver_demos\demo_uart_debug.h" />
     <ClInclude Include="..\..\source\framework\core\device.h" />
     <ClInclude Include="..\..\source\framework\core\device_bus.h" />
-    <ClInclude Include="..\..\source\framework\core\error_code.h" />
+    <ClInclude Include="..\..\source\framework\core\error_codes.h" />
     <ClInclude Include="..\..\source\framework\core\device_macro.h" />
     <ClInclude Include="..\..\source\framework\core\device_driver_manager.h" />
     <ClInclude Include="..\..\source\framework\core\device_state.h" />

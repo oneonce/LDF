@@ -119,7 +119,7 @@ extern "C" {
 		**函数名称: close
 		**功能描述: 关闭设备
 		**                注:
-		**                1. 关闭设备时，驱动层必须把device的state修改为DEV_STATE_FREE
+		**                1. 关闭设备时，驱动层必须调用release_device_driver释放当前设备
 		**输入参数:
 		**                device: 待关闭的设备
 		**输出参数: 无

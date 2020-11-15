@@ -17,11 +17,16 @@
 extern "C" {
 #endif
 
+
+
 #define FB_SYNC_HOR_HIGH_ACT							0x0001 // 水平同步高电平有效
 #define FB_SYNC_VERT_HIGH_ACT							0x0002 // 垂直同步高电平有效
 
 
 
+
+
+	/* LCD时序配置 */
 	typedef struct {
 		int32_t width; // 宽
 		int32_t height; // 高
@@ -61,6 +66,8 @@ extern "C" {
 		/**********************************************************************************************************************
 		**函数名称: close
 		**功能描述: 关闭
+		**                注:
+		**                1. 关闭设备时，驱动层必须调用release_device_driver释放当前设备
 		**输入参数:
 		**                device: 待关闭的设备
 		**输出参数: 无
@@ -135,17 +142,17 @@ extern "C" {
 		**输入参数:
 		**                x: 绘制点的左上角水平坐标
 		**                y: 绘制点的左上角垂直坐标
-		**                bufferWidth: 内存数据的宽度
-		**                bufferHeight: 内存数据的高度
+		**                buffer_width: 内存数据的宽度
+		**                buffer_height: 内存数据的高度
 		**                bound_x1: 水平绘制坐标左边界，当x小于该坐标时将不会绘制，未集成LCD控制器的MCU由底层实现
 		**                bound_y1: 垂直绘制坐标上边界，当y小于该坐标时将不会绘制，未集成LCD控制器的MCU由底层实现
-		**                bound_x2: 水平绘制坐标右边界，当(x + bufferWidth - 1)大于该坐标的部分将不会绘制，未集成LCD控制器的MCU由底层实现
-		**                bound_y2: 垂直绘制坐标下边界，当(y + bufferHeight - 1)大于该坐标的部分将不会绘制，未集成LCD控制器的MCU由底层实现
+		**                bound_x2: 水平绘制坐标右边界，当(x + buffer_width - 1)大于该坐标的部分将不会绘制，未集成LCD控制器的MCU由底层实现
+		**                bound_y2: 垂直绘制坐标下边界，当(y + buffer_height - 1)大于该坐标的部分将不会绘制，未集成LCD控制器的MCU由底层实现
 		**                buffer: 内存数据(颜色数据)，数据为大端模式
 		**输出参数: 无
 		**函数返回: 无
 		***********************************************************************************************************************/
-		void (*draw_buffer)(int32_t x, int32_t y, uint32_t bufferWidth, uint32_t bufferHeight, int32_t bound_x1, int32_t bound_y1, int32_t bound_x2, int32_t bound_y2, const uint8_t* buffer);
+		void (*draw_buffer)(int32_t x, int32_t y, uint32_t buffer_width, uint32_t buffer_height, int32_t bound_x1, int32_t bound_y1, int32_t bound_x2, int32_t bound_y2, const uint8_t* buffer);
 
 		/*********************************************************************************************************************
 		**函数名称: clear
@@ -213,9 +220,9 @@ extern "C" {
 		**函数名称: submit_fb
 		**功能描述: 提交当前显存数据
 		**                1. 未集成LCD控制器的MCU可以执行一些收尾工作或实现空方法
-		**                2. 集成LCD控制器的MCU，此时必须完成窗口/层(双缓存切换)，并准备好另一块缓存供GDI使用
+		**                2. 集成LCD控制器的MCU，此时必须完成窗口/层(双缓存切换)
 		**输入参数: 无
-		**                buffer: GDI当前持有的显存
+		**                buffer: 当前持有的显存
 		**函数返回: 无
 		***********************************************************************************************************************/
 		void (*submit_fb)(uint8_t* buffer);
