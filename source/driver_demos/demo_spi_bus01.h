@@ -8,7 +8,7 @@ extern "C" {
 
 
 
-	void init_demo_spi_bus01();
+	void register_demo_spi_bus01();
 
 
 #ifdef __cplusplus

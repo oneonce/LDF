@@ -49,7 +49,7 @@ mutex_t g_plat_mutex =
 };
 
 
-void register_plat_lock()
+void register_platform_lock()
 {
 	register_device_driver(&g_plat_mutex.device.bus_node, g_plat_mutex.device.bus_id);
 }

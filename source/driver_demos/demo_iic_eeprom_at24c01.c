@@ -99,7 +99,7 @@ device_driver_eeprom_t eeprom_at24c01 =
 };
 
 
-void init_demo_iic_eeprom_at24c01()
+void register_demo_iic_eeprom_at24c01()
 {
 	register_device_driver(&eeprom_at24c01.device.bus_node, eeprom_at24c01.device.bus_id);
 }

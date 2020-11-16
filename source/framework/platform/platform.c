@@ -43,18 +43,18 @@
 **********************************************************************************************************************/
 void platform_init()
 {
-	register_plat_lock(); // platform mutex
+	register_platform_lock(); // platform mutex
 
 	/* UART */
-	init_demo_uart_debug();
+	register_demo_uart_debug();
 
 	/* IIC */
-	init_demo_iic_bus01();
+	register_demo_iic_bus01();
 
-	init_demo_iic_eeprom_at24c01();
+	register_demo_iic_eeprom_at24c01();
 
 	/* SPI */
-	init_demo_spi_bus01();
+	register_demo_spi_bus01();
 }
 
 

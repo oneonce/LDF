@@ -46,7 +46,7 @@ device_driver_iic_t iic_bus01 =
 };
 
 
-void init_demo_iic_bus01()
+void register_demo_iic_bus01()
 {
 	register_device_driver(&iic_bus01.device.bus_node, iic_bus01.device.bus_id);
 }

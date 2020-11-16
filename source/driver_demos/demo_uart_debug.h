@@ -21,7 +21,7 @@ extern "C" {
 
 
 
-void init_demo_uart_debug();
+	void register_demo_uart_debug();
 
 
 #ifdef __cplusplus

@@ -115,7 +115,7 @@ void init_driver_attr() // 在init_driver_uart_debug()中调用
 
 
 // 设备注册注册过程: main->init_device_driver(device_manager.c)->platform_init(platform.c)->init_driver_uart_debug
-void init_demo_uart_debug()
+void register_demo_uart_debug()
 {
     // init_driver_attr(); // 初始化方式2
 

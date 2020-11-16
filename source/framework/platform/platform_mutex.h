@@ -22,7 +22,7 @@ extern "C" {
 
 
 
-void register_plat_lock();
+void register_platform_lock();
 
 
 #ifdef __cplusplus

@@ -98,7 +98,7 @@ device_driver_spi_t spi_bus01 =
 	.transfer = spi_bus01_transfer,
 };
 
-void init_demo_spi_bus01()
+void register_demo_spi_bus01()
 {
 	register_device_driver(&spi_bus01.device.bus_node, spi_bus01.device.bus_id);
 }

@@ -21,7 +21,7 @@ extern "C" {
 
 
 
-void init_demo_iic_bus01();
+void register_demo_iic_bus01();
 
 
 #ifdef __cplusplus
