@@ -52,6 +52,17 @@ static void uart_debug_register_tx_callback(uart_tx_callback callback)
     uart_debug_tx_callback = callback;
 }
 
+static uint32_t uart_debug_get_resource_total_count()
+{
+	return 0xFFFFFFFF;
+}
+
+static uint32_t uart_debug_get_resource_free_count()
+{
+	return 0xFFFFFFFE;
+}
+
+
 
 #if 1 // 初始化方式1(有的编译工具不支持)
 
@@ -61,10 +72,12 @@ device_driver_uart_t uart_debug =
         .id = DEVICE_ID_UART_DEBUG, // 使用自定义ID，参考platform.h
         //.id = 0, // 为0时由设备管理自动分配ID，>=DEVICE_ID_USR_BASE为自定义ID
 		.state = DEVICE_STATE_FREE, // 空闲状态
-		.use_mode = DEVICE_USE_MODE_EXCLUSIVE, // 独占模式
+		.use_mode = DEVICE_USE_MODE_SHARED, // 共享模式
         .type = DEVICE_TYPE_UART, // 串口类型
         .bus_id = DEVICE_BUS_DEFAULT, // 挂载默认总线上
         .multiplex = UART_MUX_DEBUG, // 调试串口
+		.get_resource_total_count = uart_debug_get_resource_total_count,
+		.get_resource_free_count = uart_debug_get_resource_free_count,
     },
     .open = uart_debug_open,
     .close = uart_debug_close,
@@ -82,11 +95,13 @@ void init_driver_attr() // 在init_driver_uart_debug()中调用
 {
         uart_debug.device.id = PLATFORM_DEV_ID_UART_DEBUG, // 使用自定义ID，参考platform.h
         //uart_debug.device.id = 0; // 为0时由设备管理自动分配ID，>=DEVICE_ID_USR_BASE为自定义ID
-		uart_debug.use_mode = DEVICE_USE_MODE_EXCLUSIVE, // 独占模式
+		uart_debug.use_mode = DEVICE_USE_MODE_SHARED, // 共享模式
 		uart_debug.device.state = DEV_STATE_FREE; // 空闲状态
         uart_debug.device.type = DEV_TYPE_UART, // 串口类型
         uart_debug.device.bus_id = DEV_BUS_DEFAULT; // 挂载默认总线上
         uart_debug.device.multiplex = UART_MUX_DEBUG; // 调试串口
+		uart_debug.device.get_resource_total_count = uart_debug_get_resource_total_count;
+		uart_debug.device.get_resource_free_count = uart_debug_get_resource_free_count;
 
         uart_debug.open = uart_debug_open;
         uart_debug.close = uart_debug_close;
