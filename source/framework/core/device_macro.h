@@ -42,6 +42,11 @@ extern "C" {
 
 
 
+/* 资源数量 */
+#define DEVICE_RES_INFINITE_TOTAL			0xFFFFFFFF // 总资源无限大
+#define DEVICE_RES_INFINITE_FREE			0xFFFFFFFE // 空闲/可用源无限大
+
+
 #ifdef __cplusplus
 }
 #endif

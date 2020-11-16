@@ -21,12 +21,12 @@ static void platform_unlock()
 
 static uint32_t platform_get_resource_total_count()
 {
-	return 0xFFFFFFFF;
+	return DEVICE_RES_INFINITE_TOTAL;
 }
 
 static uint32_t platform_get_resource_free_count()
 {
-	return 0xFFFFFFFE;
+	return DEVICE_RES_INFINITE_FREE;
 }
 
 
