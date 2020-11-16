@@ -54,12 +54,12 @@ static void uart_debug_register_tx_callback(uart_tx_callback callback)
 
 static uint32_t uart_debug_get_resource_total_count()
 {
-	return DEVICE_RES_INFINITE_TOTAL;
+	return DEVICE_RES_INFINITE_TOTAL; // 资源总数无限大
 }
 
 static uint32_t uart_debug_get_resource_free_count()
 {
-	return DEVICE_RES_INFINITE_FREE;
+	return DEVICE_RES_INFINITE_FREE; // 资源空闲数无限大
 }
 
 
