@@ -112,6 +112,7 @@ extern "C" {
 		**                注意:
 		**                1. 作为普通定时和捕获时，period_time代表定时时间，忽略pulse_width参数
 		**                2. 作为PWM时，period代表周期，pulse_width代表占空比
+		**                3. 对于PWM、捕获、输出比较等通道在platform.h中定义，参考TIMER_PWM_CH_, TIMER_CAPTURE_CH_, TIMER_COMPARE_CH_
 		**输入参数:
 		**                channel: 通道(若无通道，则忽略)
 		**                period_time: 定时时间/周期
@@ -124,6 +125,8 @@ extern "C" {
 		/**********************************************************************************************************************
 		**函数名称: stop
 		**功能描述: 停止定时
+		**                注:
+		**                1. 对于PWM、捕获、输出比较等通道在platform.h中定义，参考TIMER_PWM_CH_, TIMER_CAPTURE_CH_, TIMER_COMPARE_CH_
 		**输入参数:
 		**                channel: 通道(若无通道，则忽略)
 		**输出参数: 无
@@ -134,7 +137,9 @@ extern "C" {
 		/**********************************************************************************************************************
 		**函数名称: register_event_callback
 		**功能描述: 注册指定通道时间回调函数
-		**					注: 到时/超时回调函数需在open之前打开
+		**				   注: 
+		**                1. 到时/超时回调函数需在open之前打开
+		**                2. 对于PWM、捕获、输出比较等通道在platform.h中定义，参考TIMER_PWM_CH_, TIMER_CAPTURE_CH_, TIMER_COMPARE_CH_
 		**输入参数:
 		**                channel: 通道(若无通道，则忽略)
 		**                callback: 回调函数

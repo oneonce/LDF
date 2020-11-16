@@ -80,11 +80,15 @@ extern "C" {
 		usb_endpoint_t* endpoints; // 接口下的端点
 	} usb_interface_t;
 
-	typedef struct
+	typedef union
 	{
-		uint8_t recipient : 5; // 接收者，参考USB_REQ_REC_
-		uint8_t type : 2; // 类型，参考USB_REQ_TYPE_
-		uint8_t direction : 1; // 方向，参考USB_REQ_DIR_
+		struct
+		{
+			uint8_t recipient : 5; // 接收者，参考USB_REQ_REC_
+			uint8_t type : 2; // 类型，参考USB_REQ_TYPE_
+			uint8_t direction : 1; // 方向，参考USB_REQ_DIR_
+		} field;
+		uint8_t value;
 	} usb_request_type_t;
 
 

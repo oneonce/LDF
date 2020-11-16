@@ -86,8 +86,9 @@ device_driver_spi_t spi_bus01 =
 	.device = {
 		//.id = DEVICE_ID_SPI_BUS01, // 使用自定义ID，参考platform.h
 		.id = 0, // 为0时由设备管理自动分配ID，>=DEVICE_ID_USR_BASE为自定义ID
-		.type = DEVICE_TYPE_SPI, // SPI总线类型
 		.state = DEVICE_STATE_FREE, // 空闲状态
+		.use_mode = DEVICE_USE_MODE_EXCLUSIVE, // 独占模式
+		.type = DEVICE_TYPE_SPI, // SPI总线类型
 		.bus_id = DEVICE_BUS_DEFAULT, // 挂载默认总线上
 		.multiplex = SPI_MUX_BUS_01, // SPI总线编号01
 	},

@@ -17,10 +17,27 @@ extern "C" {
 
 
 
-
+/* 用户自定义设备ID基值 */
 #define DEVICE_ID_USR_BASE						1024 // 用户自定义设备ID最小值
 
 
+
+
+
+/* 设备使用模式 */
+/*
+1. 独占模式
+1.1. 外设只能被单个使用者使用时
+1.2 前一个使用者关闭后其他使用者才能使用
+*/
+#define DEVICE_USE_MODE_EXCLUSIVE		0
+
+/*
+2. 共享模式
+2.1. 外设可以同时被多个使用者使用时;
+2.2. 关闭设备驱动时需检查所有使用者使用情况
+*/
+#define DEVICE_USE_MODE_SHARED			1
 
 
 

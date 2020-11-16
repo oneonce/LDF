@@ -6,7 +6,7 @@
 
 
 list_head_t g_device_bus[DEVICE_BUS_MAX];
-mutex_t* g_dd_manager_lock;
+mutex_t* g_dd_manager_lock = NULL;
 
 void init_device_driver_bus()
 {
@@ -27,13 +27,12 @@ void init_device_driver()
 
 bool is_ignore_device_type(device_t* device)
 {
-	if ((DEVICE_TYPE_MUTEX == device->type)
-		|| (DEVICE_TYPE_GPIO == device->type) // 一个GPIO驱动可能实现多个I/O驱动，关闭某一个会导致其他I/O无法使用
-		|| (DEVICE_TYPE_EXT_INT == device->type) // 可能有多个外部中断s
-		)
-	{
-		return true;
-	}
+	//if ((DEVICE_TYPE_GPIO == device->type) // 一个GPIO驱动可能实现多个I/O驱动，关闭某一个会导致其他I/O无法使用
+	//	|| (DEVICE_TYPE_EXT_INT == device->type) // 可能有多个外部中断s
+	//	)
+	//{
+	//	return true;
+	//}
 
 	return false;
 }
@@ -82,7 +81,27 @@ void release_device_driver(device_t* device)
 
 	lock();
 
-	device->state = DEVICE_STATE_FREE; // 设置设备状态空闲
+	if (DEVICE_USE_MODE_EXCLUSIVE == device->use_mode) // 独占模式
+	{
+		device->state = DEVICE_STATE_FREE; // 设置设备状态空闲
+	}
+	else if (DEVICE_USE_MODE_SHARED == device->use_mode) // 共享模式
+	{
+		if ((NULL != device->get_resource_total_count) && (NULL != device->get_resource_free_count)) // 存在获取资源数量实现
+		{
+			uint32_t total_cnt = device->get_resource_total_count();
+			uint32_t free_cnt = device->get_resource_free_count();
+
+			if (total_cnt == free_cnt) // 总数=空闲数: 无使用者
+			{
+				device->state = DEVICE_STATE_FREE; // 设置设备状态空闲
+			}
+		}
+		else // 不存在获取资源数量实现
+		{
+			// nothing to do
+		}
+	}
 
 	unlock();
 }
@@ -98,18 +117,16 @@ void* get_device_by_id(uint16_t id, enum DEVICE_BUS_ID bus_id)
 	{
 		list_for_each_entry_safe(device, temp, &g_device_bus[bus_id], device_t, bus_node)
 		{
-			if ((NULL == device) || (DEVICE_STATE_INUSE == device->state))
+			if ((NULL == device)
+				|| (DEVICE_STATE_INUSE == device->state)
+				|| is_ignore_device_type(device))
 			{
 				continue;
 			}
 
 			if (device->id == id)
 			{
-				if (!is_ignore_device_type(device))
-				{
-					device->state = DEVICE_STATE_INUSE; // 设备使用中
-				}
-
+				device->state = DEVICE_STATE_INUSE; // 设备使用中
 				break;
 			}
 
@@ -138,32 +155,38 @@ void* get_device_by_type(enum DEVICE_TYPE type, uint32_t multiplex, enum DEVICE_
 	{
 		list_for_each_entry_safe(device, temp, &g_device_bus[bus_id], device_t, bus_node)
 		{
-			if ((NULL == device) || (DEVICE_STATE_INUSE == device->state))
+			if ((NULL == device)
+				|| (DEVICE_STATE_INUSE == device->state)
+				|| is_ignore_device_type(device))
 			{
 				continue;
 			}
 
-			/*[[unlikely]]*/if (0 == multiplex)
+			if (((0 != multiplex) && (type == device->type) && ((multiplex & device->multiplex) == multiplex))
+				|| ((0 == multiplex) && (type == device->type) && (multiplex == device->multiplex))
+				)
 			{
-				if ((type == device->type) && (multiplex == device->multiplex))
+				if ((DEVICE_USE_MODE_EXCLUSIVE == device->use_mode) // 独占模式
+					&& (DEVICE_STATE_FREE == device->state)) // 空闲状态
 				{
-					if (!is_ignore_device_type(device))
-					{
-						device->state = DEVICE_STATE_INUSE; // 设备使用中
-					}
+					device->state = DEVICE_STATE_INUSE; // 设备使用中
 					break;
 				}
-			}
-			else
-			{
-				if ((type == device->type) && ((multiplex & device->multiplex) == multiplex))
+				else if ((DEVICE_USE_MODE_SHARED == device->use_mode)// 共享模式
+					&& (NULL != device->get_resource_free_count)) // 获取空闲资源接口非NULL
 				{
-					if (!is_ignore_device_type(device))
+					if (0 < device->get_resource_free_count()) // 有空闲资源
 					{
 						device->state = DEVICE_STATE_INUSE; // 设备使用中
+						break;
 					}
-					break;
 				}
+				else
+				{
+					device = NULL;
+				}
+
+				// continue
 			}
 
 			device = NULL;

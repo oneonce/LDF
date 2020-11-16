@@ -54,7 +54,18 @@ typedef unsigned long long uint64_t;
 
 
 #ifndef  color_t
-typedef uint32_t  color_t;
+
+typedef union
+{
+	struct {
+		uint8_t B; // blue
+		uint8_t G; // green
+		uint8_t R; // red
+		uint8_t A; // alpha
+	} field;
+	uint32_t value;
+} color_t;
+
 #endif // ! color_t
 
 

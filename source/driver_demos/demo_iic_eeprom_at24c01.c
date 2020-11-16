@@ -86,8 +86,9 @@ device_driver_eeprom_t eeprom_at24c01 =
 {
 	.device = {
 		.id = 0, // 为0时由设备管理自动分配ID，>=DEVICE_ID_USR_BASE为自定义ID
-		.type = DEVICE_TYPE_EEPROM, // 串口类型
 		.state = DEVICE_STATE_FREE, // 空闲状态
+		.use_mode = DEVICE_USE_MODE_EXCLUSIVE, // 独占模式
+		.type = DEVICE_TYPE_EEPROM, // 串口类型
 		.bus_id = DEVICE_BUS_DEFAULT, // 挂载默认总线上
 		.multiplex = EEPROM_MUX_AT24C01, // 总线编号01
 	},
