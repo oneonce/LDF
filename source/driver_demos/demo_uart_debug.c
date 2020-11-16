@@ -10,6 +10,31 @@ uart_tx_callback uart_debug_tx_callback = NULL;
 
 uint16_t g_uar_debug_id = 0;
 
+
+void uart_interrupt()
+{
+#if 0
+	disable_interrupt();
+	获取数据
+	enable_interrupt();
+	if (rx中断)
+	{
+		if (NULL != uart_debug_rx_callback)
+		{
+			uart_debug_rx_callback(g_uar_debug_id, 收到的数据, 数据大小);
+		}
+	}
+	else if (tx中断)
+	{
+		if (NULL != uart_debug_tx_callback)
+		{
+			uart_debug_tx_callback(g_uar_debug_id);
+		}
+	}
+#endif
+}
+
+
 void uart_debug_open(uart_cfg_parameter_t* cfg_parameter)
 {
     if (NULL == cfg_parameter)
