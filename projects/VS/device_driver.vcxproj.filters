@@ -152,5 +152,8 @@
     <ClInclude Include="..\..\source\framework\core\error_codes.h">
       <Filter>framework\core</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\source\framework\interface\device_driver_flash.h">
+      <Filter>framework\interface</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

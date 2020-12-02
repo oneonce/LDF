@@ -47,6 +47,7 @@
     <ClInclude Include="..\..\source\framework\interface\device_driver_eeprom.h" />
     <ClInclude Include="..\..\source\framework\interface\device_driver_ext_irq.h" />
     <ClInclude Include="..\..\source\framework\interface\device_driver_fb.h" />
+    <ClInclude Include="..\..\source\framework\interface\device_driver_flash.h" />
     <ClInclude Include="..\..\source\framework\interface\device_driver_gpio.h" />
     <ClInclude Include="..\..\source\framework\interface\device_driver_iic.h" />
     <ClInclude Include="..\..\source\framework\interface\device_driver_soft_irq.h" />

@@ -31,6 +31,8 @@ enum ERROR_CODES
 	ERROR_CODE_NOT_SUPPORT = -6, // 不支持
 	ERROR_CODE_NO_MORE = -7, // 没有更多
 	ERROR_CODE_CLOSED = -8, // 已关闭
+	ERROR_CODE_BAD_BLK = -9, // 坏块(FALSH相关)
+	ERROR_CODE_NOT_BLK_START_ADDR = -10, // 不是块的首地址
 };
 
 

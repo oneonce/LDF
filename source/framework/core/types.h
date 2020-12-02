@@ -19,54 +19,84 @@ extern "C" {
 
 
 
+#ifndef bool_t
+	typedef unsigned char bool_t;
+#endif // !bool_t
+
+#ifndef TRUE
+#define TRUE											1
+#endif // !TRUE
+
+#ifndef FALSE
+#define FALSE											0
+#endif // !FALSE
+
+
 
 #ifndef int8_t
-typedef signed char int8_t;
+	typedef signed char int8_t;
 #endif // !int8_t
 
 #ifndef uint8_t
-typedef unsigned char uint8_t;
+	typedef unsigned char uint8_t;
 #endif // !uint8_t
 
 #ifndef int16_t
-typedef short int16_t;
+	typedef short int16_t;
 #endif // !int16_t
 
 #ifndef uint16_t
-typedef unsigned short uint16_t;
+	typedef unsigned short uint16_t;
 #endif // !uint16_t
 
 #ifndef int32_t
-typedef int int32_t;
+	typedef int int32_t;
 #endif // !int32_t
 
 #ifndef uint32_t
-typedef unsigned int uint32_t;
+	typedef unsigned int uint32_t;
 #endif // !uint32_t
 
 #ifndef int64_t
-typedef long long int64_t;
+	typedef long long int64_t;
 #endif // !int64_t
 
 #ifndef uint64_t
-typedef unsigned long long uint64_t;
+	typedef unsigned long long uint64_t;
 #endif // !uint64_t
 
 
-#ifndef  color_t
+#ifndef COLOR
 
-typedef union
-{
-	struct {
-		uint8_t B; // blue
-		uint8_t G; // green
-		uint8_t R; // red
-		uint8_t A; // alpha
-	} field;
-	uint32_t value;
-} color_t;
+	union COLOR
+	{
+#ifdef LUI_BPP_16
 
-#endif // ! color_t
+		struct
+		{
+			unsigned short blue : 5;
+			unsigned short green : 6;
+			unsigned short red : 5;
+		};
+		unsigned short value;
+
+#else
+
+		struct
+		{
+			uint8_t blue;
+			uint8_t green;
+			uint8_t red;
+			uint8_t alpha;
+		};
+		unsigned int value;
+	};
+
+#endif
+
+	typedef union COLOR color_t;
+
+#endif // ! COLOR
 
 
 #ifdef __cplusplus
