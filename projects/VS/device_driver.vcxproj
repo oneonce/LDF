@@ -60,6 +60,7 @@
     <ClInclude Include="..\..\source\framework\platform\platform.h" />
     <ClInclude Include="..\..\source\framework\platform\platform_mutex.h" />
     <ClInclude Include="..\..\source\framework\utils\list_head.h" />
+    <ClInclude Include="dev.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
